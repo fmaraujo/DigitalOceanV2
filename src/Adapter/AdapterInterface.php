@@ -30,10 +30,11 @@ interface AdapterInterface
 
     /**
      * @param string $url
+     * @param array|string $content
      *
      * @throws HttpException
      */
-    public function delete($url);
+    public function delete($url, $content = '');
 
     /**
      * @param string       $url

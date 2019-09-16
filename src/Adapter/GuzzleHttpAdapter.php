@@ -58,10 +58,14 @@ class GuzzleHttpAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function delete($url)
+    public function delete($url, $content = '')
     {
+        $options = [];
+
+        $options[is_array($content) ? 'json' : 'body'] = $content;
+
         try {
-            $this->response = $this->client->delete($url);
+            $this->response = $this->client->delete($url, $options);
         } catch (RequestException $e) {
             $this->response = $e->getResponse();
             $this->handleError();

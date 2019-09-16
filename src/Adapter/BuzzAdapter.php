@@ -55,9 +55,16 @@ class BuzzAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function delete($url)
+    public function delete($url, $content = '')
     {
-        $response = $this->browser->delete($url);
+        $headers = [];
+
+        if (is_array($content)) {
+            $content = json_encode($content);
+            $headers[] = 'Content-Type: application/json';
+        }
+
+        $response = $this->browser->delete($url, $headers, $content);
 
         $this->handleResponse($response);
     }

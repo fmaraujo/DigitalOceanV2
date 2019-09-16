@@ -126,6 +126,30 @@ class LoadBalancer extends AbstractApi
     }
 
     /**
+     * @param string $id
+     * @param string|array $droplet_ids
+     *
+     * @throws HttpException
+     */
+    public function add($id, $droplet_ids)
+    {
+        $data = compact('droplet_ids');
+        $this->adapter->post(sprintf('%s/load_balancers/%s/droplets', $this->endpoint, $id), $data);
+    }
+
+    /**
+     * @param string $id
+     * @param string|array $droplet_ids
+     *
+     * @throws HttpException
+     */
+    public function remove($id, $droplet_ids)
+    {
+        $data = compact('droplet_ids');
+        $this->adapter->delete(sprintf('%s/load_balancers/%s/droplets', $this->endpoint, $id), $data);
+    }
+
+    /**
      * @param array|AbstractEntity $forwardRules
      *
      * @return array
