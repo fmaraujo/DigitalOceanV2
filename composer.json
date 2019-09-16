@@ -1,5 +1,5 @@
 {
-    "name"       : "fmaraujo/digitalocean-v2",
+    "name"       : "toin0u/digitalocean-v2",
     "type"       : "library",
     "description": "DigitalOcean API v2 PHP 5.4+ library",
     "keywords"   : ["DigitalOcean", "API", "Cloud Hosting", "SSD", "VPS"],
